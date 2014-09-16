@@ -1,0 +1,8 @@
+/**
+ * Client page text search and highlight.
+ * @project: http://git.oschina.net/470597142/jquery-fastsearch
+ * @auth: Chiroc(470597142@qq.com)
+ * @dependence jQuery
+ * @param $
+ */
+eval(function(p,a,c,k,e,r){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a)>35?String.fromCharCode(c+29):c.toString(36))};if(!''.replace(/^/,String)){while(c--)r[e(c)]=k[c]||e(c);k=[function(e){return r[e]}];e=function(){return'\\w+'};c=1};while(c--)if(k[c])p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c]);return p}('(2($){$.1b.V=2(f,g){j h=$(7),4={k:N,F:18,s:\'#M\',q:\'#O\',o:2(a){5(7.k){f.J()}},E:2(a,b){5(7.k){f.U()}},B:2(a,b,c,d){5(7.k){c.J()}}},9=[],l=0,p=\'S\',n=\'\',w=W;4=$.X(4,g);n=[\'s:\',4.s,\';q:\',4.q].13(\'\');f=f||$(\'17\');5(4.F){p=\'g\'}x{$.1g[\':\'].y=2(a,i,m){v $(a).C().D().P(m[3].D())>=0}}h.Q(\'R\',2(e){5(w===e.T){h.r(\'\');6.8();4.o(h)}6.t(h.r())}).Y().Z(h,\'10 11\',2(){6.t(h.r())});j 6={t:2(b){b=$.12(b.G(/[<>]+|<(\\/?)([A-14-z]+)([<>]*)>/g,\'\'));5(b===\'\'){6.8();4.o(h);v}4.E(h,b);9=f.15(\':y("\'+b+\'")\');l=9.16;6.8();5(l){9.H(2(){j a=$(7);a.I(a.I().G(19 1a("("+b+")(?![^<]*>)",p),\'<u 1c="K" n="1d: 1e;\'+n+\'">$1</u>\'))})}x{6.8()}4.B(h,b,9,l)},8:2(){$(\'u.K\',f).H(2(){j a=$(7);a.1f(a.C())})}}}})(L);',62,79,'||function||setting|if|_|this|clearHighlight|result||||||||||var|autoToggle|count||style|afterClear|flags|background|val|color|search|span|return|KEY_CODE_ESC|else|contains|||afterSearch|text|toUpperCase|beforeSearch|caseSensitive|replace|each|html|show|fastsearch|jQuery|000|true|FF9632|indexOf|on|keyup|gi|keyCode|hide|fastSearch|27|extend|parent|delegate|input|paste|trim|join|Za|filter|length|body|false|new|RegExp|fn|class|float|none|replaceWith|expr'.split('|'),0,{}))
