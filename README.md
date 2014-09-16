@@ -1,1 +1,1 @@
-#fast-search
+#jquery-fast-search
