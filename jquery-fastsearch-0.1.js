@@ -1,7 +1,7 @@
 /**
  * Client page text search and highlight.
  * @project: http://git.oschina.net/470597142/jquery-fast-search
- * @auth: Chiroc(zhi-peng.cai@hp.com)
+ * @auth: Chiroc(470597142@qq.com)
  * @dependence jQuery
  * @param $
  */
