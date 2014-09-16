@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>jQuery fastsearch demo</title>
+    <script type="text/javascript" src="jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="jquery-fastsearch-0.1.js"></script>
+    <style type="text/css">
+        *{
+            font-family: "klavika-web", "Helvetica Neue", Helvetica, Arial, Geneva, sans-serif;
+        }
+        em{
+            color: #666;
+            font-style: normal;
+            font-size: .5em;
+            font-weight: lighter;
+        }
+        input[type="text"]{
+            width: 300px;
+            padding: 2px;
+            border: 2px solid #666;
+            line-height: 24px;
+        }
+        table{
+            text-align: left;
+            margin-top: 20px;
+            border-collapse: collapse;
+            border: 2px solid #666;
+            width: 1000px;
+        }
+        table thead th{
+            background-color: #666;
+            color: white;
+            line-height: 32px;
+        }
+    </style>
+</head>
+<body>
+<!--//////////////////////////////////////////////////////////-->
+<h1>Demo 1 <em>Simplest usage</em></h1>
+<input type="text" id="demo-1" placeholder="Input the keywords...">
+    <ul id="scope-1">
+        <li>1234567890</li>
+        <li>qwert yuiop asdfg hjkl; zxcvb nm</li>
+        <li>jhu hjdflkdc dc</li>
+        <li>中国开源社区</li>
+        <li>Chiroc Cai</li>
+    </ul>
+<hr/>
+<!--//////////////////////////////////////////////////////////-->
+<h1>Demo 2 <em>Show/Hide filter results with a simple code</em></h1>
+<input type="text" id="demo-2" placeholder="Input the keywords...">
+<ul id="scope-2">
+    <li>1234567890</li>
+    <li>qwert yuiop asdfg hjkl; zxcvb nm</li>
+    <li>jhu hjdflkdc dc</li>
+    <li>中国开源社区</li>
+    <li>Chiroc Cai</li>
+</ul>
+<hr/>
+<!--//////////////////////////////////////////////////////////-->
+<h1>Demo 3 <em>Self definitions in table.</em></h1>
+<input type="text" id="demo-3" placeholder="Input the keywords...">
+<table id="scope-3">
+    <thead>
+        <tr>
+            <th><input type="checkbox"/></th>
+            <th>Sequence</th>
+            <th>Description</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td><input type="checkbox"/></td>
+        <td>4673434-21</td>
+        <td>表格内容信息描述，Table Information & description.</td>
+        <td><a href="#">Opt-1</a> | <a href="#">Opt-2</a> | <a href="#">Opt-3</a></td>
+    </tr>
+    <tr>
+        <td><input type="checkbox"/></td>
+        <td>4673434-21</td>
+        <td>表格内容信息描述，Table Information & description.</td>
+        <td><a href="#">Opt-1</a> | <a href="#">Opt-2</a> | <a href="#">Opt-3</a></td>
+    </tr>
+    <tr>
+        <td><input type="checkbox"/></td>
+        <td>587546-21</td>
+        <td>Compressed and uncompressed copies of jQuery files are available.</td>
+        <td><a href="#">Opt-1</a> | <a href="#">Opt-2</a> | <a href="#">Opt-3</a></td>
+    </tr>
+    <tr>
+        <td><input type="checkbox"/></td>
+        <td>5555666-31</td>
+        <td>NextApp 是开源中国在早几年开发的一个可自动为 WordPress 的博客网站生成手机客户端的平台.</td>
+        <td><a href="#">Opt-1</a> | <a href="#">Opt-2</a> | <a href="#">Opt-3</a></td>
+    </tr>
+    </tbody>
+</table>
+<hr/>
+<script type="text/javascript">
+    $(document).ready(function(){
+        //Demo 1
+        $('#demo-1').fastSearch($('#scope-1').find('li'));
+
+        //Demo 2
+        var target2 = $('#scope-2').find('li');
+        $('#demo-2').fastSearch(target2, {
+            autoToggle: true, //自动切换隐藏和显示DOM节点
+            caseSensitive: true, //区分大小写
+            color: 'white', //字体颜色
+            background: '#00f' //背景颜色
+        });
+
+//        //Demo 3
+//        var target3 = [];
+//        $('#scope-3').find('tbody > tr').each(function(){
+//            return $(this).find('td').filter(':not(:first)');
+//        });
+        var target3 =  $('#scope-3').find('td');
+        $('#demo-3').fastSearch(target3, {
+            afterClear: function (self) {
+                target3.parent().show();
+            },
+            beforeSearch: function (self, keyWords) {
+                target3.parent().hide();
+            },
+            afterSearch: function (self, keyWords, result, count) {
+                result.parent().show();
+            }
+        });
+    });
+</script>
+</body>
+</html>
