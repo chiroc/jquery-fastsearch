@@ -4,9 +4,10 @@
  * @auth: Chiroc(470597142@qq.com)
  * @dependence jQuery
  * @usage:
- * var target = $('#scope').find('td'); //The target for searching. 
+ * var target = $('#scope').find('td'); //The target for searching.
  * //$('#demo-4') is input object.
  * $('#demo-4').fastSearch(target, {
+ *      dynamic: false, //Search node every, used for dynamic node.
  *      autoToggle: true, //Toggle show/hide DOM node when searching.
  *      caseSensitive: true, //Case sensitive.
  *      color: 'white', //font color for results.
@@ -32,6 +33,7 @@
             style = '',
             KEY_CODE_ESC = 27,
             setting = {
+                dynamic: false,
                 parent: false,
                 autoToggle: false,
                 caseSensitive: false,
@@ -72,12 +74,28 @@
                 _.clearHighlight();
                 setting.afterClear(self);
             }
+            if (setting.dynamic) {
+                _.refreshTarget();
+            }
             _.search(self.val());
         }).parent().delegate(self, 'input paste', function () {
+                if (setting.dynamic) {
+                    _.refreshTarget();
+                }
                 _.search(self.val());
             });
 
         var _ = {
+            /**
+             * Reset searching target.
+             */
+            refreshTarget: function () {
+                target = $(target.selector);
+            },
+            /**
+             * Search engine.
+             * @param keyWords
+             */
             search: function (keyWords) {
                 keyWords = $.trim(keyWords.replace(/[<>]+|<(\/?)([A-Za-z]+)([<>]*)>/g, ''));
                 if (keyWords === '') {
@@ -102,12 +120,39 @@
 
                 setting.afterSearch(self, keyWords, result, count);
             },
+            /**
+             * Clear highlight string.
+             */
             clearHighlight: function () {
                 $('span.fastsearch', target).each(function () {
                     var thiz = $(this);
                     thiz.replaceWith(thiz.text());
                 });
             }
-        }
+        };
+
+        return {
+            /**
+             * Get search result objects.
+             * @returns {Array}
+             */
+            getResult: function () {
+                return result;
+            },
+            /**
+             * Get objects for searching.
+             * @returns {*|HTMLElement}
+             */
+            getTarget: function () {
+                return target;
+            },
+            /**
+             * Dynamic settings set.
+             * @param options
+             */
+            setting: function(options){
+                setting = $.extend(setting, options);
+            }
+        };
     };
 })(jQuery);
