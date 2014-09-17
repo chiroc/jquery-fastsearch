@@ -35,7 +35,9 @@
     </style>
 </head>
 <body>
+
 <!--//////////////////////////////////////////////////////////-->
+
 <h1>Demo 1 <em>Simplest usage</em></h1>
 <input type="text" id="demo-1" placeholder="Input the keywords...">
     <ul id="scope-1">
@@ -46,7 +48,9 @@
         <li>Chiroc Cai</li>
     </ul>
 <hr/>
+
 <!--//////////////////////////////////////////////////////////-->
+
 <h1>Demo 2 <em>Show/Hide filter results with a simple code</em></h1>
 <input type="text" id="demo-2" placeholder="Input the keywords...">
 <ul id="scope-2">
@@ -55,10 +59,13 @@
     <li>jhu hjdflkdc dc</li>
     <li>中国开源社区</li>
     <li>Chiroc Cai</li>
+    <li class="ignore">This item is ignored.</li>
 </ul>
 <hr/>
+
 <!--//////////////////////////////////////////////////////////-->
-<h1>Demo 3 <em>Self definitions in table.</em></h1>
+
+<h1>Demo 3 <em>Simplest definitions in table, when want to hide it's parent node when toggle.</em></h1>
 <input type="text" id="demo-3" placeholder="Input the keywords...">
 <table id="scope-3">
     <thead>
@@ -71,59 +78,112 @@
     </thead>
     <tbody>
     <tr>
-        <td><input type="checkbox"/></td>
+        <td class="ignore"><input type="checkbox"/></td>
         <td>4673434-21</td>
         <td>表格内容信息描述，Table Information & description.</td>
-        <td><a href="#">Opt-1</a> | <a href="#">Opt-2</a> | <a href="#">Opt-3</a></td>
+        <td class="ignore"><a href="#">Opt-1</a> | <a href="#">Opt-2</a> | <a href="#">Opt-3</a></td>
     </tr>
     <tr>
-        <td><input type="checkbox"/></td>
-        <td>4673434-21</td>
+        <td class="ignore"><input type="checkbox"/></td>
+        <td><span>4673434-21</span></td>
         <td>表格内容信息描述，Table Information & description.</td>
-        <td><a href="#">Opt-1</a> | <a href="#">Opt-2</a> | <a href="#">Opt-3</a></td>
+        <td class="ignore"><a href="#">Opt-1</a> | <a href="#">Opt-2</a> | <a href="#">Opt-3</a></td>
     </tr>
     <tr>
-        <td><input type="checkbox"/></td>
+        <td class="ignore"><input type="checkbox"/></td>
         <td>587546-21</td>
         <td>Compressed and uncompressed copies of jQuery files are available.</td>
-        <td><a href="#">Opt-1</a> | <a href="#">Opt-2</a> | <a href="#">Opt-3</a></td>
+        <td class="ignore"><a href="#">Opt-1</a> | <a href="#">Opt-2</a> | <a href="#">Opt-3</a></td>
     </tr>
     <tr>
-        <td><input type="checkbox"/></td>
+        <td class="ignore"><input type="checkbox"/></td>
         <td>5555666-31</td>
         <td>NextApp 是开源中国在早几年开发的一个可自动为 WordPress 的博客网站生成手机客户端的平台.</td>
-        <td><a href="#">Opt-1</a> | <a href="#">Opt-2</a> | <a href="#">Opt-3</a></td>
+        <td class="ignore"><a href="#">Opt-1</a> | <a href="#">Opt-2</a> | <a href="#">Opt-3</a></td>
     </tr>
     </tbody>
 </table>
-<hr/>
+<br/>
+<!--//////////////////////////////////////////////////////////-->
+
+<h1>Demo 4 <em>Self definitions in table.</em></h1>
+<input type="text" id="demo-4" placeholder="Input the keywords...">
+<table id="scope-4">
+    <thead>
+    <tr>
+        <th><input type="checkbox"/></th>
+        <th>Sequence</th>
+        <th>Description</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td class="ignore"><input type="checkbox"/></td>
+        <td>4673434-21</td>
+        <td>表格内容信息描述，Table Information & description.</td>
+        <td class="ignore"><a href="#">Opt-1</a> | <a href="#">Opt-2</a> | <a href="#">Opt-3</a></td>
+    </tr>
+    <tr>
+        <td class="ignore"><input type="checkbox"/></td>
+        <td><span>4673434-21</span></td>
+        <td>表格内容信息描述，Table Information & description.</td>
+        <td class="ignore"><a href="#">Opt-1</a> | <a href="#">Opt-2</a> | <a href="#">Opt-3</a></td>
+    </tr>
+    <tr>
+        <td class="ignore"><input type="checkbox"/></td>
+        <td>587546-21</td>
+        <td>Compressed and uncompressed copies of jQuery files are available.</td>
+        <td class="ignore"><a href="#">Opt-1</a> | <a href="#">Opt-2</a> | <a href="#">Opt-3</a></td>
+    </tr>
+    <tr>
+        <td class="ignore"><input type="checkbox"/></td>
+        <td>5555666-31</td>
+        <td>NextApp 是开源中国在早几年开发的一个可自动为 WordPress 的博客网站生成手机客户端的平台.</td>
+        <td class="ignore"><a href="#">Opt-1</a> | <a href="#">Opt-2</a> | <a href="#">Opt-3</a></td>
+    </tr>
+    </tbody>
+</table>
+<br/>
+
 <script type="text/javascript">
     $(document).ready(function(){
         //Demo 1
+        //$('#scope-1').find('li') -> the node for searching
         $('#demo-1').fastSearch($('#scope-1').find('li'));
 
+
         //Demo 2
-        var target2 = $('#scope-2').find('li');
-        $('#demo-2').fastSearch(target2, {
-            autoToggle: true, //自动切换隐藏和显示DOM节点
-            caseSensitive: true, //区分大小写
-            color: 'white', //字体颜色
-            background: '#00f' //背景颜色
+        $('#demo-2').fastSearch($('#scope-2').find('li'), {
+            autoToggle: true, //Toggle show/hide DOM node.
+            caseSensitive: true, //Case sensitive.
+            color: 'white', //font color for results.
+            background: '#00f' //background color for results.
         });
 
-//        //Demo 3
-//        var target3 = [];
-//        $('#scope-3').find('tbody > tr').each(function(){
-//            return $(this).find('td').filter(':not(:first)');
-//        });
-        var target3 =  $('#scope-3').find('td');
-        $('#demo-3').fastSearch(target3, {
+
+        //Demo 3
+        //$('#scope-3').find('td') -> the node for searching
+        $('#demo-3').fastSearch($('#scope-3').find('td'), {
+            autoToggle: true,
+            parent: true //when want to hide it's parent node when toggle
+        });
+
+
+        //Demo 4
+        var target4 =  $('#scope-4').find('td');
+        $('#demo-4').fastSearch(target4, {
+            // afterClear: event after clear search results.
             afterClear: function (self) {
-                target3.parent().show();
+                target4.parent().show();
             },
+
+            // beforeSearch: event before search started.
             beforeSearch: function (self, keyWords) {
-                target3.parent().hide();
+                target4.parent().hide();
             },
+
+            // afterSearch: event after search completed.
             afterSearch: function (self, keyWords, result, count) {
                 result.parent().show();
             }
