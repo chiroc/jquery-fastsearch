@@ -12,7 +12,7 @@
  *      caseSensitive: true, //Case sensitive.
  *      color: 'white', //font color for results.
  *      background: '#00f' //background color for results.
- *      parent: true //when want to hide it's parent node when toggle
+ *      parent: true //Whether to hide its parent node when toggle
  *      afterClear: function (self) {
  *          // afterClear: event after clear search results.
  *      },
