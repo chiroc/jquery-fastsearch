@@ -65,8 +65,10 @@
 
 <!--//////////////////////////////////////////////////////////-->
 
-<h1>Demo 3 <em>Simplest definitions in table, when want to hide it's parent node when toggle.</em></h1>
+<h1>Demo 3 <em>Simplest definitions in table, when want to hide it's parent node when toggle. Support dynamic table.</em></h1>
 <input type="text" id="demo-3" placeholder="Input the keywords...">
+<button onclick="addRow()">Add a row for table</button>
+<label><input type="checkbox" id="chk"/> Dynamic</label>
 <table id="scope-3">
     <thead>
         <tr>
@@ -147,12 +149,18 @@
 <br/>
 
 <script type="text/javascript">
+    function addRow(){
+        var row = '<tr><td class="ignore"><input type="checkbox"/></td><td>'+ (Math.floor(Math.random() * 1000)) +'</td><td>Compressed and uncompressed</td><td class="ignore"><a href="#">Opt-1</a> | <a href="#">Opt-2</a> | <a href="#">Opt-3</a></td></tr>';
+        $('#scope-3').find('tbody').append(row);
+    }
+
     $(document).ready(function(){
         //Demo 1
         //$('#scope-1').find('li') -> the node for searching
         $('#demo-1').fastSearch($('#scope-1').find('li'));
 
 
+        //------------------------------------------------------
         //Demo 2
         $('#demo-2').fastSearch($('#scope-2').find('li'), {
             autoToggle: true, //Toggle show/hide DOM node.
@@ -162,14 +170,22 @@
         });
 
 
+        //------------------------------------------------------
         //Demo 3
         //$('#scope-3').find('td') -> the node for searching
-        $('#demo-3').fastSearch($('#scope-3').find('td'), {
+        var sch = $('#demo-3').fastSearch($('#scope-3').find('td'), {
             autoToggle: true,
+            dynamic: false,
             parent: true //when want to hide it's parent node when toggle
+        });
+        $('#chk').change(function(){
+            sch.setting({
+                dynamic: $(this).is(':checked')
+            });
         });
 
 
+        //------------------------------------------------------
         //Demo 4
         var target4 =  $('#scope-4').find('td');
         $('#demo-4').fastSearch(target4, {
