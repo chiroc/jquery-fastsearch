@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>jQuery fastsearch performance test</title>
+    <script type="text/javascript" src="jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="jquery-fastsearch-1.0.js"></script>
+    <style type="text/css">
+        *{
+            font-family: "klavika-web", "Helvetica Neue", Helvetica, Arial, Geneva, sans-serif;
+        }
+        em.title{
+            color: #666;
+            font-style: normal;
+            font-size: .5em;
+            font-weight: lighter;
+        }
+        input[type="text"]{
+            width: 300px;
+            padding: 2px;
+            border: 2px solid #666;
+            line-height: 24px;
+        }
+        table{
+            text-align: left;
+            margin-top: 20px;
+            border-collapse: collapse;
+            border: 2px solid #666;
+            width: 1000px;
+        }
+        table thead th{
+            background-color: #666;
+            color: white;
+            line-height: 32px;
+        }
+    </style>
+</head>
+<body>
+<h1>List Demo <em class="title">Bind event after add a list</em></h1>
+<input type="number" id="txt-rows" value="1000" /><button onclick="addRow()">Add a row for list</button> <b id="time"></b>
+<button type="button" onclick="bindEvent()">Bind Event</button>
+<br/><br/>
+<input type="text" id="demo-3" placeholder="Input the keywords..." value="qwert">
+<label><input type="checkbox" id="chk"/> Dynamic</label>
+<ol id="wrapper">
+</ol>
+<br/>
+<!--//////////////////////////////////////////////////////////-->
+
+<br/>
+
+<script type="text/javascript">
+    var txt = ['NextAppqwert源中国在早几qwert个可自动为 WordPress 的博客网站生成手机客户端的平台',
+        'Compressed andqwertcompreqwertcopies of jQuery files are available.',
+        '客户端（页面）查询与高亮查询qwert件 jquery-fastsearch',
+        '微软减少开发者年费支出降低生qwert门槛',
+        '09/18Android Oqwert能让谷歌收回安卓控制权吗？',
+        '09/18HPN-SSH —qwert升 OpenSSH 性能的补丁',
+        '09/1810 个必备而且非qwert的 Rails 4 Gems',
+        '09/18【每日一博】RocqwertMQ 消息队列简单部署',
+        '09/18黑客攻击我们的 1qwert详解及防御建议',
+        '09/1833 种症状证明你qwert开电脑到户外走走'];
+
+    function addRow(){
+        var rows = parseInt($('#txt-rows').val(), 10),
+                index = 0, i = 0, row = [], tbl = $('#wrapper'),
+                t = new Date().getTime();
+        for(; i < rows; i++){
+            index = Math.floor(Math.random()*10);
+            row[i] = '<li>QWERT'+ (Math.floor(Math.random() * 100000)) + ':'+ txt[index] +'OP</li>';
+        }
+        tbl.append(row.join(''));
+        $('#time').html(new Date().getTime() - t + ' ms');
+    }
+
+    function bindEvent(){
+        //------------------------------------------------------
+        //Demo 3
+        //$('#scope-3').find('td') -> the node for searching
+        var sch = $('#demo-3').fastSearch($('#wrapper').find('li'), {
+            autoToggle: true,
+            dynamic: false,
+            highlight: true
+        });
+
+        $('#chk').change(function(){
+            sch.setting({
+                dynamic: $(this).is(':checked')
+            });
+        });
+    }
+</script>
+</body>
+</html>
