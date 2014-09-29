@@ -3,7 +3,7 @@
 <head>
     <title>jQuery fastsearch demo</title>
     <script type="text/javascript" src="jquery-1.11.1.min.js"></script>
-    <script type="text/javascript" src="jquery-fastsearch-0.1.js"></script>
+    <script type="text/javascript" src="jquery-fastsearch-1.0.min.js"></script>
     <style type="text/css">
         *{
             font-family: "klavika-web", "Helvetica Neue", Helvetica, Arial, Geneva, sans-serif;
@@ -51,7 +51,7 @@
 
 <!--//////////////////////////////////////////////////////////-->
 
-<h1>Demo 2 <em>Show/Hide filter results with a simple code</em></h1>
+<h1>Demo 2 <em>Filter results with a simple code</em></h1>
 <input type="text" id="demo-2" placeholder="Input the keywords...">
 <ul id="scope-2">
     <li>1234567890</li>
@@ -163,7 +163,7 @@
         //------------------------------------------------------
         //Demo 2
         $('#demo-2').fastSearch($('#scope-2').find('li'), {
-            autoToggle: true, //Toggle show/hide DOM node.
+            autoToggle: false, //Toggle show/hide DOM node.
             caseSensitive: true, //Case sensitive.
             color: 'white', //font color for results.
             background: '#00f' //background color for results.
