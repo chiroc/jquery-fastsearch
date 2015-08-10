@@ -4,7 +4,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>jQuery fastsearch performance test</title>
     <script type="text/javascript" src="jquery-1.11.1.min.js"></script>
-    <script type="text/javascript" src="jquery-fastsearch-1.0.js"></script>
+    <script type="text/javascript" src="jquery-fastsearch-1.0.1.js"></script>
     <style type="text/css">
         * {
             font-family: "klavika-web", "Helvetica Neue", Helvetica, Arial, Geneva, sans-serif;
@@ -89,7 +89,7 @@
                 t = new Date().getTime();
         for (; i < rows; i++) {
             index = Math.floor(Math.random() * 10);
-            row[i] = '<tr><td class="ignore"><input id="chk-' + i + '" type="checkbox"/></td><td>' + i + '</td><td>QWERT' + (Math.floor(Math.random() * 100000)) + '</td><td>' + txt[index] + '</td><td class="ignore"><a href="#">Opt-1</a> | <a href="#">Opt-2</a> | <a href="#">Opt-3</a></td></tr>';
+            row[i] = '<tr><td class="_ignore"><input id="chk-' + i + '" type="checkbox"/></td><td>' + i + '</td><td>QWERT' + (Math.floor(Math.random() * 100000)) + '</td><td>' + txt[index] + '</td><td class="_ignore"><a href="#">Opt-1</a> | <a href="#">Opt-2</a> | <a href="#">Opt-3</a></td></tr>';
         }
         tbl.append(row.join(''));
         $('#time').html(new Date().getTime() - t + ' ms');
