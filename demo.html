@@ -3,7 +3,7 @@
 <head>
     <title>jQuery fastsearch demo</title>
     <script type="text/javascript" src="jquery-1.11.1.min.js"></script>
-    <script type="text/javascript" src="jquery-fastsearch-1.0.min.js"></script>
+    <script type="text/javascript" src="jquery-fastsearch-1.0.1.js"></script>
     <style type="text/css">
         *{
             font-family: "klavika-web", "Helvetica Neue", Helvetica, Arial, Geneva, sans-serif;
@@ -46,6 +46,7 @@
         <li>jhu hjdflkdc dc</li>
         <li>中国开源社区</li>
         <li>Chiroc Cai</li>
+        <li class="_ignore">ignore search result with class '_ignore'</li>
     </ul>
 <hr/>
 
@@ -59,7 +60,7 @@
     <li>jhu hjdflkdc dc</li>
     <li>中国开源社区</li>
     <li>Chiroc Cai</li>
-    <li class="ignore">This item is ignored.</li>
+    <li class="_ignore">ignore search result with class '_ignore'</li>
 </ul>
 <hr/>
 
@@ -80,28 +81,28 @@
     </thead>
     <tbody>
     <tr>
-        <td class="ignore"><input type="checkbox"/></td>
+        <td class="_ignore"><input type="checkbox"/></td>
         <td>4673434-21</td>
         <td>表格内容信息描述，Table Information & description.</td>
-        <td class="ignore"><a href="#">Opt-1</a> | <a href="#">Opt-2</a> | <a href="#">Opt-3</a></td>
+        <td class="_ignore"><a href="#">Opt-1</a> | <a href="#">Opt-2</a> | <input type="button" class="_evt" value="evt" id="t0"></td>
     </tr>
     <tr>
-        <td class="ignore"><input type="checkbox"/></td>
+        <td class="_ignore"><input type="checkbox"/></td>
         <td><span>4673434-21</span></td>
         <td>表格内容信息描述，Table Information & description.</td>
-        <td class="ignore"><a href="#">Opt-1</a> | <a href="#">Opt-2</a> | <a href="#">Opt-3</a></td>
+        <td class="_ignore"><a href="#">Opt-1</a> | <a href="#">Opt-2</a> | <input type="button" class="_evt" value="evt" id="t1"></td>
     </tr>
     <tr>
-        <td class="ignore"><input type="checkbox"/></td>
+        <td class="_ignore"><input type="checkbox"/></td>
         <td>587546-21</td>
         <td>Compressed and uncompressed copies of jQuery files are available.</td>
-        <td class="ignore"><a href="#">Opt-1</a> | <a href="#">Opt-2</a> | <a href="#">Opt-3</a></td>
+        <td class="_ignore"><a href="#">Opt-1</a> | <a href="#">Opt-2</a> | <input type="button" class="_evt" value="evt" id="t2"></td>
     </tr>
     <tr>
-        <td class="ignore"><input type="checkbox"/></td>
+        <td class="_ignore"><input type="checkbox"/></td>
         <td>5555666-31</td>
         <td>NextApp 是开源中国在早几年开发的一个可自动为 WordPress 的博客网站生成手机客户端的平台.</td>
-        <td class="ignore"><a href="#">Opt-1</a> | <a href="#">Opt-2</a> | <a href="#">Opt-3</a></td>
+        <td class="_ignore"><a href="#">Opt-1</a> | <a href="#">Opt-2</a> | <input type="button" class="_evt" value="evt" id="t3"></td>
     </tr>
     </tbody>
 </table>
@@ -121,28 +122,28 @@
     </thead>
     <tbody>
     <tr>
-        <td class="ignore"><input type="checkbox"/></td>
+        <td class="_ignore"><input type="checkbox"/></td>
         <td>4673434-21</td>
         <td>表格内容信息描述，Table Information & description.</td>
-        <td class="ignore"><a href="#">Opt-1</a> | <a href="#">Opt-2</a> | <a href="#">Opt-3</a></td>
+        <td class="_ignore"><a href="#">Opt-1</a> | <a href="#">Opt-2</a> | <a href="#">Opt-3</a></td>
     </tr>
     <tr>
-        <td class="ignore"><input type="checkbox"/></td>
+        <td class="_ignore"><input type="checkbox"/></td>
         <td><span>4673434-21</span></td>
         <td>表格内容信息描述，Table Information & description.</td>
-        <td class="ignore"><a href="#">Opt-1</a> | <a href="#">Opt-2</a> | <a href="#">Opt-3</a></td>
+        <td class="_ignore"><a href="#">Opt-1</a> | <a href="#">Opt-2</a> | <a href="#">Opt-3</a></td>
     </tr>
     <tr>
-        <td class="ignore"><input type="checkbox"/></td>
+        <td class="_ignore"><input type="checkbox"/></td>
         <td>587546-21</td>
         <td>Compressed and uncompressed copies of jQuery files are available.</td>
-        <td class="ignore"><a href="#">Opt-1</a> | <a href="#">Opt-2</a> | <a href="#">Opt-3</a></td>
+        <td class="_ignore"><a href="#">Opt-1</a> | <a href="#">Opt-2</a> | <a href="#">Opt-3</a></td>
     </tr>
     <tr>
-        <td class="ignore"><input type="checkbox"/></td>
+        <td class="_ignore"><input type="checkbox"/></td>
         <td>5555666-31</td>
         <td>NextApp 是开源中国在早几年开发的一个可自动为 WordPress 的博客网站生成手机客户端的平台.</td>
-        <td class="ignore"><a href="#">Opt-1</a> | <a href="#">Opt-2</a> | <a href="#">Opt-3</a></td>
+        <td class="_ignore"><a href="#">Opt-1</a> | <a href="#">Opt-2</a> | <a href="#">Opt-3</a></td>
     </tr>
     </tbody>
 </table>
@@ -150,7 +151,7 @@
 
 <script type="text/javascript">
     function addRow(){
-        var row = '<tr><td class="ignore"><input type="checkbox"/></td><td>'+ (Math.floor(Math.random() * 1000)) +'</td><td>Compressed and uncompressed</td><td class="ignore"><a href="#">Opt-1</a> | <a href="#">Opt-2</a> | <a href="#">Opt-3</a></td></tr>';
+        var row = '<tr><td class="_ignore"><input type="checkbox"/></td><td>'+ (Math.floor(Math.random() * 1000)) +'</td><td>Compressed and uncompressed</td><td class="_ignore"><a href="#">Opt-1</a> | <a href="#">Opt-2</a> | <a href="#">Opt-3</a></td></tr>';
         $('#scope-3').find('tbody').append(row);
     }
 
@@ -184,6 +185,9 @@
             });
         });
 
+        $('._evt', $('#scope-3')).click(function(){
+            alert(this.id);
+        });
 
         //------------------------------------------------------
         //Demo 4
@@ -200,7 +204,7 @@
             },
 
             // afterSearch: event after search completed.
-            afterSearch: function (self, keyWords, result, count) {
+            afterSearch: function (self, keyWords, result) {
                 result.parent().show();
             }
         });
